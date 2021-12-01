@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html 
+< cabeça >
+
+<title>Jogo da Cobrinha</title>
+
+
+<head>
+    <corpo>
+
+        <canvas id = " stage " width = " 800 " height = " 600 " > </canvas>
+        <script> type = " text / javascript " >
+        
+        janela . onload  =  function ( ) {
+ 
+            var  stage  =  document . getElementById ( 'estágio' ) ;
+            var  ctx  =  estágio . getContext ( "2d" ) ;
+            documento . addEventListener ( "keydown" ,  keyPush ) ;
+            setInterval ( jogo ,  80 ) ;
+ 
+            const  vel  =  1 ;
+ 
+            var  vx  =  vy  =  0 ;
+            var  px  = 10 ;
+            var  py  =  15 ;
+            var  tp  =  30 ;
+            var  qp  =  20 ;
+            var  ax = ay = 15 ;
+ 
+            var  trail  =  [ ] ;
+            cauda  =  5 ;
+ 
+             jogo de funções ( ) {
+                px  + =  vx ;
+                py  + =  vy ;
+                if  ( px  < 0 )  {
+                    px  =  qp - 1 ;
+                }
+                if  ( px  >  qp - 1 )  {
+                    px  =  0 ;
+                }
+                if  ( py  <  0 )  {
+                    py  =  qp - 1 ;
+                }
+                if  ( py  >  qp - 1 )  {
+                    py  =  0 ;
+                }
+ 
+                ctx . fillStyle  =  "preto" ;
+                ctx . fillRect ( 0 , 0 ,  palco . largura ,  palco . altura ) ;
+ 
+                ctx . fillStyle  =  "vermelho" ;
+                ctx . fillRect ( ax * tp ,  ay * tp ,  tp , tp ) ;
+ 
+                ctx . fillStyle  =  "verde" ;
+                para  ( var  i  =  0 ;  i  <  fuga . comprimento ;  i ++ )  {
+                    ctx . fillRect ( trilha [ i ] . x * tp ,  trilha [ i ] . y * tp ,  tp - 1 , tp - 1 ) ;
+                    if  ( trilha [ i ] . x  ==  px  &&  trilha [ i ] . y  ==  py )
+                    {
+                        vx  =  vy = 0 ;
+                        cauda  = 5 ;
+                    }
+                }
+ 
+                trilha . push ( { x : px , y : py  } )
+                while  ( trilha . comprimento  >  cauda )  {
+                    trilha . shift ( ) ;
+                }
+ 
+                if  ( ax == px  &&  ay == py ) {
+                    tail ++ ;
+                    machado  =  matemática . chão ( matemática . random ( ) * qp ) ;
+                    ay  =  matemática . chão ( matemática . random ( ) * qp ) ;
+                }
+ 
+            }
+ 
+            function  keyPush ( event ) {
+ 
+                switch  ( event . keyCode )  {
+                    case  37 : // Left
+                        vx  =  - vel ;
+                        vy  =  0 ;
+                        pausa ;
+                    case  38 : // up
+                        vx  =  0 ;
+                        vy  =  - vel ;
+                        pausa ;
+                    case  39 : // certo
+                        vx  =  vel ;
+                        vy  =  0 ;
+                        pausa ;
+                    case  40 : // para baixo
+                        vx  =  0 ;
+                        vy  =  vel ;
+                        pausa ;          
+                    padrão :
+                        
+                        pausa ;
+                }
+ 
+ 
+            }
+ 
+        }
+
+
+       </script>
+        
+    
+   
+
+</head>
+    
+</body>
+</html>
