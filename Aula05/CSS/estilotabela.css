@@ -1,0 +1,29 @@
+table, tr, td {
+
+    border: 1px solid rgb(248, 10, 10);
+    border-collapse: collapse;
+    background-color: yellow;
+
+}
+
+td, th{
+border: 1px solid rgb(241, 54, 7);
+border-collapse: collapse;
+
+}
+
+tr:first-child{
+background-color: turquoise;
+color: #0a0202;
+
+}
+
+tr:last-child{
+background-color: rgb(255, 8, 222);
+color: #0a030a;
+text-align: center;
+}
+
+tr:hover{
+opacity: 0.5;
+}
